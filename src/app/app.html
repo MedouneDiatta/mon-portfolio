@@ -1,17 +1,18 @@
-<!-- Un conteneur centré avec Bootstrap -->
-<div class="container text-center mt-5">
-  <!-- Titre principal du portfolio -->
-  <h1 class="display-4 text-primary fw-bold">Mon Portfolio Angular</h1>
-  <p class="lead text-muted">Bienvenue sur notre application de portfolio en binôme.</p>
+<!-- la page d'accueil de mon portfolio -->
 
-  <hr class="my-4" />
+<div class="container my-5">
+  <!-- En-tête de la page -->
+  <div class="text-center mb-5">
+    <h1 class="display-4 fw-bold text-primary">Mon Portfolio Angular</h1>
+    <p class="lead text-muted">Bienvenue sur notre application de portfolio en binôme.</p>
+  </div>
 
-  <!-- Section "À propos" stylisée avec une carte Bootstrap -->
-  <div class="row justify-content-center">
+  <!-- Section "À propos" -->
+  <div class="row justify-content-center mb-5">
     <div class="col-md-6">
-      <div class="card shadow-sm p-4">
-        <h2 class="h4 mb-3">À propos de nous</h2>
-        <p>
+      <div class="card shadow-sm p-4 border-0 bg-light">
+        <h2 class="h4 mb-3 text-dark">À propos de nous</h2>
+        <p class="text-secondary mb-0">
           Étudiants en développement web, nous construisons ce portfolio en suivant les bases
           d'Angular et de TypeScript.
         </p>
@@ -19,7 +20,43 @@
     </div>
   </div>
 
-  <!-- Balise pour le routage futur (laisse-la ici pour ne pas avoir d'erreur) -->
+  <hr class="mb-5" />
+
+  <!-- Section des projets -->
+  <h2 class="mb-4 text-center">Mes Réalisations</h2>
+
+  <!-- Grille Bootstrap pour les cartes -->
+  <div class="row g-4">
+    <!-- 
+      Boucle magique Angular (@for) : 
+      Pour chaque projet dans "listeProjets", on génère une carte Bootstrap 
+    -->
+    @for (projet of listeProjets; track projet.id) {
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body d-flex flex-column">
+            <!-- Titre du projet -->
+            <h3 class="h5 card-title fw-bold text-dark">{{ projet.titre }}</h3>
+
+            <!-- Description du projet -->
+            <p class="card-text text-secondary flex-grow-1">{{ projet.description }}</p>
+
+            <!-- Badges des technologies -->
+            <div class="mb-3">
+              @for (techno of projet.technos; track techno) {
+                <span class="badge bg-secondary me-1 mb-1">{{ techno }}</span>
+              }
+            </div>
+
+            <!-- Bouton de détail -->
+            <button class="btn btn-outline-primary mt-auto">Voir le détail</button>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+
+  <!-- Balise pour le routage futur -->
   <div class="mt-4">
     <router-outlet></router-outlet>
   </div>
