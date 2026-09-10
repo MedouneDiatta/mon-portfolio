@@ -48,8 +48,10 @@
               }
             </div>
 
-            <!-- Bouton de détail -->
-            <button class="btn btn-outline-primary mt-auto">Voir le détail</button>
+            <!-- Le bouton utilise routerLink avec un tableau-->
+            <a [routerLink]="['/projet', projet.id]" class="btn btn-outline-primary mt-auto">
+              Voir le détail
+            </a>
           </div>
         </div>
       </div>
