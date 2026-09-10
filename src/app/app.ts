@@ -9,7 +9,7 @@ import { LISTE_PROJETS } from './projet.data';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink], //  On les déclare tous les deux dans les imports
+  // imports: [CommonModule, RouterOutlet, RouterLink], //  On les déclare tous les deux dans les imports
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
