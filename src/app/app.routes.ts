@@ -1,12 +1,18 @@
 import { Routes } from '@angular/router';
-// 1. On importe le composant de détail pour qu'Angular le reconnaisse
 import { ProjetDetail } from './projet-detail/projet-detail';
-import { App } from './app';
+import { AboutComponent } from './pages/about/about';
+import { ContactComponent } from './pages/contact/contact';
 
 export const routes: Routes = [
-    // route par defaut pourla page d'accueil
-    {path: '', component:App},
-    
-  //  La route dynamique avec son ID
-  { path: 'projet/:id', component: ProjetDetail }
+  // 1. Par défaut, on redirige vers la page À propos
+  { path: '', redirectTo: '/about', pathMatch: 'full' },
+
+  // 2. Ta page À propos
+  { path: 'about', component: AboutComponent },
+
+  // 3. La page de détail de Medoune (avec l'ID dans l'URL)
+  { path: 'projet/:id', component: ProjetDetail },
+
+  // 4. La page Contact (exigence du PDF avec [(ngModel)])
+  { path: 'contact', component: ContactComponent }
 ];
