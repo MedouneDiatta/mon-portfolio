@@ -18,12 +18,13 @@ export class Accueil implements OnInit, OnDestroy {
 
   private wordIndex = 0;
   private letterIndex = 0;
+  private estEnTrainDeSupprimer = false;
   private timer: any;
 
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
-    this.loop();
+    this.lancerAnimation();
   }
 
   ngOnDestroy() {
@@ -32,31 +33,34 @@ export class Accueil implements OnInit, OnDestroy {
     }
   }
 
-  loop() {
-    this.timer = setTimeout(() => {
-      if (this.wordIndex >= this.motsAanimer.length) {
-        this.wordIndex = 0;
-        this.letterIndex = 0;
-        this.loop();
-      } else if (this.letterIndex < this.motsAanimer[this.wordIndex].length) {
-        this.motActuel += this.motsAanimer[this.wordIndex].charAt(this.letterIndex);
+  lancerAnimation() {
+    const motComplet = this.motsAanimer[this.wordIndex];
+
+    if (!this.estEnTrainDeSupprimer) {
+      // Phase 1 : Écriture lettre par lettre de gauche à droite
+      if (this.letterIndex <= motComplet.length) {
+        this.motActuel = motComplet.substring(0, this.letterIndex);
         this.letterIndex++;
-        
-        // On force Angular à rafraîchir la vue immédiatement pour chaque lettre
         this.cdr.detectChanges();
-        
-        this.loop();
+        this.timer = setTimeout(() => this.lancerAnimation(), 120);
       } else {
-        this.timer = setTimeout(() => {
-          this.motActuel = '';
-          this.wordIndex++;
-          this.letterIndex = 0;
-          
-          this.cdr.detectChanges();
-          
-          this.loop();
-        }, 2000);
+        // Le mot est entièrement écrit, on fait une pause de 2 secondes avant d'effacer
+        this.estEnTrainDeSupprimer = true;
+        this.timer = setTimeout(() => this.lancerAnimation(), 2000);
       }
-    }, 120);
+    } else {
+      // Phase 2 : Effacement lettre par lettre de droite à gauche
+      if (this.letterIndex > 0) {
+        this.letterIndex--;
+        this.motActuel = motComplet.substring(0, this.letterIndex);
+        this.cdr.detectChanges();
+        this.timer = setTimeout(() => this.lancerAnimation(), 80); // Vitesse d'effacement un peu plus rapide
+      } else {
+        // Le mot est complètement effacé, on passe au mot suivant dans le tableau
+        this.estEnTrainDeSupprimer = false;
+        this.wordIndex = (this.wordIndex + 1) % this.motsAanimer.length;
+        this.timer = setTimeout(() => this.lancerAnimation(), 400);
+      }
+    }
   }
 }

@@ -3,9 +3,10 @@
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   height: 60vh;
-  background-image: url('../../assets/fond.jpeg');
+  /* On utilise un dégradé de secours + l'image en fond avec un scale si besoin */
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../../assets/fond.jpeg');
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
 }
 
@@ -15,12 +16,13 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+  /* Plus besoin de couleur ici puisque le linear-gradient du background s'en charge proprement */
 }
 
+/* Zone fixe pour stabiliser le texte et éviter les sauts d'affichage */
 .typing-container {
   display: inline-block;
-  min-width: 320px;
+  min-width: 320px; 
   text-align: left;
 }
 
