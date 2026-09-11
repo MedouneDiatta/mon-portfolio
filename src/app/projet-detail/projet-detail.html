@@ -1,28 +1,41 @@
-<!-- On vérifie si un projet a bien été trouvé. Si oui, on affiche ses détails, sinon on bascule sur le bloc de secours #introuvable -->
-<div *ngIf="projetTrouve; else introuvable">
+<!-- On vérifie si un projet a bien été trouvé -->
+<div *ngIf="projetTrouve; else introuvable" class="container mt-4">
   <!-- Affichage du titre du projet -->
-  <h2>{{ projetTrouve.titre }}</h2>
+  <h2 class="mb-3">{{ projetTrouve.titre }}</h2>
 
-  <!-- Affichage de la description -->
-  <p>{{ projetTrouve.description }}</p>
+  <!-- Description du projet -->
+  <p class="lead">{{ projetTrouve.description }}</p>
 
-  <!-- Liste des technologies utilisées (boucle *ngFor pour parcourir le tableau) -->
-  <ul>
-    <li *ngFor="let techno of projetTrouve.technos">{{ techno }}</li>
+  <!-- Liste des technologies -->
+  <h5 class="mt-4">Technologies utilisées :</h5>
+  <ul class="list-group mb-4" style="max-width: 400px">
+    <li *ngFor="let techno of projetTrouve.technos" class="list-group-item">{{ techno }}</li>
   </ul>
 
-  <!-- Lien vers le dépôt GitHub (affiché uniquement si le lien existe grâce au *ngIf) -->
-  <a *ngIf="projetTrouve.lienGithub" [href]="projetTrouve.lienGithub" target="_blank"
-    >Voir sur GitHub</a
-  >
-  <br />
+  <!-- Conteneur pour nos boutons -->
+  <div class="d-flex gap-3 align-items-center">
+    <!-- Bouton GitHub affiché uniquement si le projet possède un lien -->
+    <a
+      *ngIf="projetTrouve.lienGithub"
+      [href]="projetTrouve.lienGithub"
+      target="_blank"
+      class="btn btn-primary"
+    >
+      Voir sur GitHub
+    </a>
 
-  <!-- Lien de navigation pour revenir à la page d'accueil sans recharger la page (RouterLink) -->
-  <a routerLink="/">← Retour à l'accueil</a>
+    <!-- Bouton de retour à l'accueil -->
+    <a routerLink="/" class="btn btn-secondary"> Retour à l'accueil </a>
+  </div>
 </div>
 
-<!-- Bloc de secours affiché si l'ID du projet dans l'URL n'existe pas dans notre liste -->
+<!-- Bloc de secours si l'ID n'existe pas -->
 <ng-template #introuvable>
-  <p>Projet introuvable.</p>
-  <a routerLink="/">← Retour à l'accueil</a>
+  <div class="container mt-5 text-center">
+    <div class="alert alert-danger" role="alert">
+      <h4>Oups ! Projet introuvable.</h4>
+      <p>L'identifiant demandé ne correspond à aucun projet enregistré.</p>
+    </div>
+    <a routerLink="/" class="btn btn-primary mt-3">← Retour à l'accueil</a>
+  </div>
 </ng-template>
