@@ -1,9 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { Projet } from '../projet.model';
 
 @Component({
-  imports: [],
   selector: 'app-card',
-  styleUrl: './card.css',
+  standalone: true,
+  imports: [CommonModule, RouterLink],
   templateUrl: './card.html',
+  styleUrl: './card.css',
 })
-export class Card {}
+export class Card {
+  @Input() projet!: Projet;
+}
