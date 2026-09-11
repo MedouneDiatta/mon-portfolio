@@ -1,5 +1,26 @@
-<div class="row">
-  <div class="col-md-4 mb-4" *ngFor="let projet of listeProjets">
-    <app-card [projet]="projet"></app-card>
+<!-- Section Bannière / Accueil -->
+<div
+  class="hero-section text-white text-center d-flex flex-column justify-content-center align-items-center"
+>
+  <div class="hero-overlay"></div>
+  <div class="content position-relative z-1 container">
+    <h1 class="display-4 fw-bold">Bienvenue sur mon Portfolio</h1>
+    <p class="fs-3 mt-3">
+      Je suis
+      <span class="typing-container">
+        <span class="text-warning fw-bold">{{ motActuel }}</span
+        ><span class="cursor">|</span>
+      </span>
+    </p>
+  </div>
+</div>
+
+<!-- Le reste de ta liste de projets -->
+<div class="container my-5">
+  <h2 class="mb-4 text-center">Mes Réalisations</h2>
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let unProjet of listeProjets">
+      <app-card [projet]="unProjet"></app-card>
+    </div>
   </div>
 </div>

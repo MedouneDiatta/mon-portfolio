@@ -1,0 +1,34 @@
+.hero-section {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  height: 60vh;
+  background-image: url('../../assets/fond.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.typing-container {
+  display: inline-block;
+  min-width: 320px;
+  text-align: left;
+}
+
+.cursor {
+  animation: clignote 0.7s infinite;
+}
+
+@keyframes clignote {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
