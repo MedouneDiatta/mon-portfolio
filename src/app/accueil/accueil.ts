@@ -13,7 +13,7 @@ import { Card } from '../card/card';
 export class Accueil implements OnInit, OnDestroy {
   listeProjets = LISTE_PROJETS;
 
-  motsAanimer: string[] = ['Développeur Web', 'Passionné', 'Créatif'];
+  motsAanimer: string[] = ['Développeur Web', 'Passionné et Motivé', 'Créatif et Professionnel'];
   motActuel = '';
 
   private wordIndex = 0;
