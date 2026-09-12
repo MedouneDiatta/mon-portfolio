@@ -1,0 +1,10 @@
+<div class="card h-100 shadow-sm">
+  <div class="card-body">
+    <h5 class="card-title">{{ projet.titre }}</h5>
+    <p class="card-text">{{ projet.description }}</p>
+    <p class="card-text">
+      <small class="text-muted" *ngFor="let techno of projet.technos">{{ techno }} </small>
+    </p>
+    <a [routerLink]="['/projet', projet.id]" class="btn btn-primary btn-sm">Voir le détail</a>
+  </div>
+</div>

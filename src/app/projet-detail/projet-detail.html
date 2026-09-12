@@ -1,0 +1,41 @@
+<!-- On vérifie si un projet a bien été trouvé -->
+<div *ngIf="projetTrouve; else introuvable" class="container mt-4">
+  <!-- Affichage du titre du projet -->
+  <h2 class="mb-3">{{ projetTrouve.titre }}</h2>
+
+  <!-- Description du projet -->
+  <p class="lead">{{ projetTrouve.description }}</p>
+
+  <!-- Liste des technologies -->
+  <h5 class="mt-4">Technologies utilisées :</h5>
+  <ul class="list-group mb-4" style="max-width: 400px">
+    <li *ngFor="let techno of projetTrouve.technos" class="list-group-item">{{ techno }}</li>
+  </ul>
+
+  <!-- Conteneur pour nos boutons -->
+  <div class="d-flex gap-3 align-items-center">
+    <!-- Bouton GitHub affiché uniquement si le projet possède un lien -->
+    <a
+      *ngIf="projetTrouve.lienGithub"
+      [href]="projetTrouve.lienGithub"
+      target="_blank"
+      class="btn btn-primary"
+    >
+      Voir sur GitHub
+    </a>
+
+    <!-- Bouton de retour à l'accueil -->
+    <a routerLink="/" class="btn btn-secondary"> Retour à l'accueil </a>
+  </div>
+</div>
+
+<!-- Bloc de secours si l'ID n'existe pas -->
+<ng-template #introuvable>
+  <div class="container mt-5 text-center">
+    <div class="alert alert-danger" role="alert">
+      <h4>Oups ! Projet introuvable.</h4>
+      <p>L'identifiant demandé ne correspond à aucun projet enregistré.</p>
+    </div>
+    <a routerLink="/" class="btn btn-primary mt-3">← Retour à l'accueil</a>
+  </div>
+</ng-template>

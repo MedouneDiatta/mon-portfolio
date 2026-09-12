@@ -1,26 +1,10 @@
-<!-- Un conteneur centré avec Bootstrap -->
-<div class="container text-center mt-5">
-  <!-- Titre principal du portfolio -->
-  <h1 class="display-4 text-primary fw-bold">Mon Portfolio Angular</h1>
-  <p class="lead text-muted">Bienvenue sur notre application de portfolio en binôme.</p>
+<!-- Barre de navigation commune -->
+<app-navbar></app-navbar>
 
-  <hr class="my-4" />
+<!-- Contenu principal qui changera selon la route (Accueil, À propos, Détail, etc.) -->
+<main class="flex-grow-1 container py-4">
+  <router-outlet></router-outlet>
+</main>
 
-  <!-- Section "À propos" stylisée avec une carte Bootstrap -->
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="card shadow-sm p-4">
-        <h2 class="h4 mb-3">À propos de nous</h2>
-        <p>
-          Étudiants en développement web, nous construisons ce portfolio en suivant les bases
-          d'Angular et de TypeScript.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Balise pour le routage futur (laisse-la ici pour ne pas avoir d'erreur) -->
-  <div class="mt-4">
-    <router-outlet></router-outlet>
-  </div>
-</div>
+<!-- Pied de page commun -->
+<app-footer></app-footer>
