@@ -4,6 +4,8 @@
 
 Ce projet consiste en la réalisation d'un site web statique de type portfolio professionnel développé avec le framework **Angular** (dernière version stable). Il s'inscrit dans le cadre de l'évaluation du cours de Technologie Web 3.
 
+**Découvrez le site en direct ici :** [https://medoune-portfolio.web.app/](https://medoune-portfolio.web.app/)
+
 ## Binôme
 
 - **Étudiant 1 :** Medoune Sambiane Diatta
