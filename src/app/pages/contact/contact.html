@@ -1,52 +1,70 @@
-<div class='contact-container'>
+<div class="contact-container">
   <h2>Contactez-nous</h2>
 
-  <div *ngIf='!envoye'>
-    <form (ngSubmit)='onSubmit()' #contactForm='ngForm'>
-
+  <div *ngIf="!envoye">
+    <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
       <!-- Champ Nom -->
-      <div class='form-group'>
+      <div class="form-group">
         <label>Nom complet :</label>
-        <input type='text' [(ngModel)]='nom' name='nom' required
-               [class.erreur]='soumis && !nomValide'
-               [class.succes]='nomValide'
-               placeholder='Ex: Abdourahmane Diouf'>
-        <small class='msg-erreur' *ngIf='soumis && !nomValide'>
-          ⚠️ Le nom doit contenir au moins 2 lettres (pas de chiffres).
+        <input
+          type="text"
+          [(ngModel)]="nom"
+          name="nom"
+          required
+          [class.erreur]="soumis && !nomValide"
+          [class.succes]="nomValide"
+          placeholder="Ex: Abdourahmane Diouf"
+        />
+        <small class="msg-erreur" *ngIf="soumis && !nomValide">
+          Le nom doit contenir au moins 2 lettres (pas de chiffres).
         </small>
       </div>
 
       <!-- Champ Email -->
-      <div class='form-group'>
+      <div class="form-group">
         <label>Email :</label>
-        <input type='text' [(ngModel)]='email' name='email' required
-               [class.erreur]='soumis && !emailValide'
-               [class.succes]='emailValide'
-               placeholder='exemple@email.com'>
-        <small class='msg-erreur' *ngIf='soumis && !emailValide'>
-          ⚠️ Veuillez entrer une adresse email valide.
+        <input
+          type="text"
+          [(ngModel)]="email"
+          name="email"
+          required
+          [class.erreur]="soumis && !emailValide"
+          [class.succes]="emailValide"
+          placeholder="exemple@email.com"
+        />
+        <small class="msg-erreur" *ngIf="soumis && !emailValide">
+          Veuillez entrer une adresse email valide.
         </small>
       </div>
 
       <!-- Champ Message -->
-      <div class='form-group'>
+      <div class="form-group">
         <label>Message (min. 10 caractères) :</label>
-        <textarea [(ngModel)]='message' name='message' required rows='5'
-                  [class.erreur]='soumis && !messageValide'
-                  [class.succes]='messageValide'
-                  placeholder='Votre message...'></textarea>
-        <small class='msg-erreur' *ngIf='soumis && !messageValide'>
-          ⚠️ Le message doit contenir au moins 10 caractères.
+        <textarea
+          [(ngModel)]="message"
+          name="message"
+          required
+          rows="5"
+          [class.erreur]="soumis && !messageValide"
+          [class.succes]="messageValide"
+          placeholder="Votre message..."
+        ></textarea>
+        <small class="msg-erreur" *ngIf="soumis && !messageValide">
+          Le message doit contenir au moins 10 caractères.
         </small>
       </div>
 
-      <button type='submit' class='btn-envoyer'>Envoyer le message</button>
+      <button type="submit" class="btn-envoyer">Envoyer le message</button>
     </form>
   </div>
 
-  <div *ngIf='envoye' class='success-box'>
+  <div *ngIf="envoye" class="success-box">
     <h3>✅ Merci {{ nom }} !</h3>
-    <p>Votre message a bien été envoyé. Nous vous répondrons à : <strong>{{ email }}</strong></p>
-    <button (click)='envoye=false; nom=""; email=""; message=""; soumis=false'>Envoyer un autre message</button>
+    <p>
+      Votre message a bien été envoyé. Nous vous répondrons à : <strong>{{ email }}</strong>
+    </p>
+    <button (click)="envoye = false; nom = ''; email = ''; message = ''; soumis = false">
+      Envoyer un autre message
+    </button>
   </div>
 </div>
