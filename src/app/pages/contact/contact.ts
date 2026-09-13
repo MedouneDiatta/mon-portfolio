@@ -1,40 +1,50 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [FormsModule],
-  template: `
-    <div class="container py-5">
-      <h1 class="mb-4 text-primary">Nous contacter</h1>
-      <div class="row justify-content-center">
-        <div class="col-md-8">
-          <form (ngSubmit)="onSubmit()" class="p-4 bg-white rounded shadow-sm border">
-            <div class="mb-3">
-              <label class="form-label">Nom</label>
-              <input type="text" class="form-control" [(ngModel)]="formData.name" name="name" required placeholder="Votre nom">
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Email</label>
-              <input type="email" class="form-control" [(ngModel)]="formData.email" name="email" required placeholder="votre@email.com">
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Message</label>
-              <textarea class="form-control" rows="4" [(ngModel)]="formData.message" name="message" required placeholder="Votre message..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary w-100">Envoyer</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  `
+  imports: [CommonModule, FormsModule],
+  templateUrl: './contact.html',
+  styleUrl: './contact.css'
 })
 export class ContactComponent {
-  formData = { name: '', email: '', message: '' };
+  nom: string = '';
+  email: string = '';
+  message: string = '';
+  envoye: boolean = false;
+  soumis: boolean = false;
+
+  // Regex : uniquement lettres, espaces, tirets et apostrophes
+  regexNom = /^[a-zA-ZÀ-ÿ\s'-]+$/;
+  regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  // Vérifications en temps réel
+  get nomValide(): boolean {
+    return this.nom.length >= 2 && this.regexNom.test(this.nom);
+  }
+
+  get emailValide(): boolean {
+    return this.regexEmail.test(this.email);
+  }
+
+  get messageValide(): boolean {
+    return this.message.length >= 10;
+  }
+
+  get formulaireValide(): boolean {
+    return this.nomValide && this.emailValide && this.messageValide;
+  }
 
   onSubmit() {
-    alert(`Merci ${this.formData.name} ! Message envoyé (simulation).`);
-    this.formData = { name: '', email: '', message: '' };
+    this.soumis = true;
+    if (this.formulaireValide) {
+      console.log('Formulaire envoyé:', { nom: this.nom, email: this.email, message: this.message });
+      this.envoye = true;
+      alert('Message envoyé avec succès ! (simulation)');
+    } else {
+      alert('Veuillez corriger les erreurs dans le formulaire.');
+    }
   }
 }
