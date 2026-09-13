@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-// Interface pour typer nos données (bonne pratique Angular)
 interface Competence {
   nom: string;
   niveau: string;
@@ -22,13 +21,12 @@ interface Membre {
   styleUrl: './about.css'
 })
 export class AboutComponent {
-  // Tableau contenant les données des deux membres du binôme
   membres: Membre[] = [
     {
       nom: 'Abdourahmane Diouf',
       role: 'Développement de l\'architecture Angular, gestion du routage, implémentation des formulaires (ngModel) et création des composants partagés (Footer).',
       competences: [
-        { nom: 'HTML / CSS', niveau: 'Avancé' },
+        { nom: 'HTML / CSS', niveau: 'Intermédiaire' },
         { nom: 'JavaScript', niveau: 'Intermédiaire' },
         { nom: 'Angular', niveau: 'Débutant / Intermédiaire' },
         { nom: 'Git & GitHub', niveau: 'Intermédiaire' },
@@ -45,7 +43,7 @@ export class AboutComponent {
       nom: 'Médoune Diatta',
       role: 'Conception du design UI/UX, intégration des animations, développement des pages d\'accueil et de détail, et configuration du déploiement Firebase.',
       competences: [
-        { nom: 'HTML / CSS', niveau: 'Avancé' },
+        { nom: 'HTML / CSS', niveau: 'Intermédiaire' },
         { nom: 'JavaScript', niveau: 'Intermédiaire' },
         { nom: 'Angular', niveau: 'Débutant / Intermédiaire' },
         { nom: 'Git & GitHub', niveau: 'Intermédiaire' },
