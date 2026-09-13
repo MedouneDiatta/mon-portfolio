@@ -1,1 +1,42 @@
-<p>about works!</p>
+<div class="about-container">
+  <h1 class="main-title">À propos de notre binôme</h1>
+  <p class="main-intro">
+    Nous sommes deux étudiants en Licence 1 Informatique passionnés par le développement web. Ce
+    portfolio a été réalisé dans le cadre du cours de Technologie Web 3 pour démontrer notre
+    maîtrise d'Angular.
+  </p>
+
+  <!-- Boucle principale sur les membres du binôme -->
+  <div class="membres-grid">
+    <div *ngFor="let membre of membres" class="membre-card">
+      <div class="membre-header">
+        <div class="avatar">{{ membre.nom.charAt(0) }}{{ membre.nom.split(' ')[1].charAt(0) }}</div>
+        <h2>{{ membre.nom }}</h2>
+      </div>
+
+      <div class="membre-role">
+        <h3>Rôle dans le projet</h3>
+        <p>{{ membre.role }}</p>
+      </div>
+
+      <div class="membre-section">
+        <h3>Mes️ Compétences</h3>
+        <ul class="liste-competences">
+          <!-- Boucle imbriquée sur les compétences -->
+          <li *ngFor="let comp of membre.competences" class="competence-item">
+            <span class="nom">{{ comp.nom }}</span>
+            <span class="niveau">{{ comp.niveau }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="membre-section">
+        <h3>Contributions</h3>
+        <ul class="liste-taches">
+          <!-- Boucle imbriquée sur les tâches -->
+          <li *ngFor="let tache of membre.taches">{{ tache }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

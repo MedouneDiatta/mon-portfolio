@@ -1,0 +1,135 @@
+.about-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.main-title {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.main-intro {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Grille pour afficher les deux membres côte à côte */
+.membres-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.membre-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.membre-card:hover {
+  transform: translateY(-5px);
+}
+
+.membre-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 1rem;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #3498db, #2c3e50);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.membre-header h2 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.4rem;
+}
+
+.membre-role {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.membre-role h3 {
+  margin-top: 0;
+  color: #2980b9;
+  font-size: 1rem;
+}
+
+.membre-role p {
+  margin: 0;
+  color: #555;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.membre-section {
+  margin-bottom: 1.5rem;
+}
+
+.membre-section h3 {
+  color: #2c3e50;
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.3rem;
+}
+
+.liste-competences {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.competence-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed #eee;
+  font-size: 0.95rem;
+}
+
+.competence-item:last-child {
+  border-bottom: none;
+}
+
+.niveau {
+  font-weight: bold;
+  color: #27ae60;
+}
+
+.liste-taches {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.liste-taches li {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+  color: #444;
+  font-size: 0.95rem;
+}
