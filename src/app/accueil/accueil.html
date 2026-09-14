@@ -1,25 +1,57 @@
-<!-- Section Bannière / Accueil -->
-<div
-  class="hero-section text-white text-center d-flex flex-column justify-content-center align-items-center"
+<!-- ========================================== -->
+<!-- SECTION BANNIÈRE / ACCUEIL (HERO)        -->
+<!-- ========================================== -->
+<section
+  class="hero-section text-white text-center d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden"
 >
-  <div class="content position-relative z-1 container">
-    <h1 class="display-4 fw-bold">Bienvenue sur mon Portfolio</h1>
-    <p class="fs-3 mt-3">
-      Je suis
-      <span class="typing-container"
-        ><span class="text-warning fw-bold">{{ motActuel }}</span
-        ><span class="cursor">|</span></span
-      >
-    </p>
-  </div>
-</div>
+  <!-- Élément décoratif en arrière-plan -->
+  <div class="hero-backdrop"></div>
 
-<!-- Le reste de ta liste de projets -->
-<div class="container my-5">
-  <h2 class="mb-4 text-center">Mes Réalisations</h2>
-  <div class="row">
-    <div class="col-md-4 mb-4" *ngFor="let unProjet of listeProjets">
-      <app-card [projet]="unProjet"></app-card>
+  <div class="content position-relative z-2 container py-5">
+    <!-- "Bienvenue" en petit, centré -->
+    <p class="text-uppercase tracking-wider text-light opacity-75 small fw-semibold mb-2">
+      Bienvenue
+    </p>
+
+    <!-- Ton nom complet en gros -->
+    <h1 class="display-3 fw-bold tracking-tight mb-3">
+      Je suis <span class="text-warning">Medoune DIATTA</span>
+    </h1>
+
+    <!-- Le texte avec les mots qui s'animent -->
+    <p class="fs-4 fw-light text-light-50 mt-2">
+      <span class="typing-container">
+        <span class="text-white fw-semibold">{{ motActuel }}</span>
+        <span class="cursor animate-pulse">|</span>
+      </span>
+    </p>
+
+    <!-- Boutons d'action rapides avec routerLink pour le contact -->
+    <div class="mt-4 d-flex justify-content-center gap-3">
+      <a href="#projets" class="btn btn-warning px-4 py-2 fw-semibold shadow-sm"
+        >Voir mes projets</a
+      >
+      <a routerLink="/contact" class="btn btn-outline-light px-4 py-2 fw-semibold">Me contacter</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================== -->
+<!-- SECTION "MES RÉALISATIONS" (PROJETS)       -->
+<!-- ========================================== -->
+<div id="projets" class="container my-5 py-4">
+  <div class="text-center mb-5">
+    <h2 class="fw-bold text-dark display-6">Mes Réalisations</h2>
+    <p class="text-muted">Découvrez une sélection de mes projets récents et concrets.</p>
+    <div class="mx-auto mt-2 bg-primary rounded" style="width: 50px; height: 3px"></div>
+  </div>
+
+  <!-- Grille des projets -->
+  <div class="row g-4 justify-content-center">
+    <div class="col-lg-4 col-md-6 mb-3" *ngFor="let unProjet of listeProjets">
+      <div class="project-card-wrapper h-100">
+        <app-card [projet]="unProjet"></app-card>
+      </div>
     </div>
   </div>
 </div>
