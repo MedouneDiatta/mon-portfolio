@@ -4,6 +4,7 @@
 
 .services-section {
   background-color: #faf9f6; /* Un fond très légèrement cassé (off-white) pour casser la monotonie du blanc pur */
+  scroll-margin-top: 90px;
 }
 
 /* Style de la carte moderne */

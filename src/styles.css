@@ -1,5 +1,10 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
+/* Activation du défilement fluide global pour les ancres (#services, etc.) */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f8f9fa;
