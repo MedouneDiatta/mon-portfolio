@@ -1,10 +1,37 @@
-<div class="card h-100 shadow-sm">
-  <div class="card-body">
-    <h5 class="card-title">{{ projet.titre }}</h5>
-    <p class="card-text">{{ projet.description }}</p>
-    <p class="card-text">
-      <small class="text-muted" *ngFor="let techno of projet.technos">{{ techno }} </small>
-    </p>
-    <a [routerLink]="['/projet', projet.id]" class="btn btn-primary btn-sm">Voir le détail</a>
+<div class="card custom-project-card h-100 border-0 shadow-sm overflow-hidden">
+  <!-- Image du projet avec conteneur pour l'effet de zoom -->
+  <div class="card-img-wrapper position-relative overflow-hidden">
+    <img
+      [src]="projet.image || 'assets/default-project.jpg'"
+      class="card-img-top"
+      [alt]="projet.titre"
+    />
+  </div>
+
+  <!-- Corps de la carte -->
+  <div class="card-body d-flex flex-column p-4">
+    <!-- Titre -->
+    <h5 class="card-title fw-bold text-dark mb-2">{{ projet.titre }}</h5>
+
+    <!-- Description (limitée visuellement ou complète) -->
+    <p class="card-text text-muted small flex-grow-1 mb-3">{{ projet.description }}</p>
+
+    <!-- Liste des technos sous forme de badges -->
+    <div class="tech-tags d-flex flex-wrap gap-1 mb-3">
+      <span
+        *ngFor="let techno of projet.technos"
+        class="badge bg-light text-primary border px-2 py-1"
+      >
+        {{ techno }}
+      </span>
+    </div>
+
+    <!-- Bouton Voir le détail -->
+    <a
+      [routerLink]="['/projet', projet.id]"
+      class="btn btn-outline-primary btn-sm w-100 fw-semibold mt-auto"
+    >
+      Voir le détail →
+    </a>
   </div>
 </div>

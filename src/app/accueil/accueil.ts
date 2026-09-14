@@ -1,20 +1,19 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router'; // <-- Import indispensable pour le bouton de contact
+import { RouterLink } from '@angular/router';
 import { LISTE_PROJETS } from '../projet.data';
 import { Card } from '../card/card';
 
 @Component({
   selector: 'app-accueil',
   standalone: true,
-  imports: [CommonModule, RouterLink, Card], // <-- Ajout de RouterLink ici
+  imports: [CommonModule, RouterLink, Card],
   templateUrl: './accueil.html',
   styleUrl: './accueil.css'
 })
 export class Accueil implements OnInit, OnDestroy {
   listeProjets = LISTE_PROJETS;
 
-  // Nouveaux mots qui s'affichent après "Je suis Medoune DIATTA"
   motsAanimer: string[] = [
     'Développeur Web Full-Stack', 
     'Passionné par le code', 
@@ -30,7 +29,7 @@ export class Accueil implements OnInit, OnDestroy {
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
-    this.lancerAnimation();
+    this.lancerAnimation(); // <-- Très important pour démarrer l'effet machine à écrire
   }
 
   ngOnDestroy() {
@@ -43,26 +42,22 @@ export class Accueil implements OnInit, OnDestroy {
     const motComplet = this.motsAanimer[this.wordIndex];
 
     if (!this.estEnTrainDeSupprimer) {
-      // Écriture lettre par lettre
       if (this.letterIndex <= motComplet.length) {
         this.motActuel = motComplet.substring(0, this.letterIndex);
         this.letterIndex++;
         this.cdr.detectChanges();
         this.timer = setTimeout(() => this.lancerAnimation(), 100);
       } else {
-        // Pause avant l'effacement
         this.estEnTrainDeSupprimer = true;
         this.timer = setTimeout(() => this.lancerAnimation(), 2000);
       }
     } else {
-      // Effacement lettre par lettre
       if (this.letterIndex > 0) {
         this.letterIndex--;
         this.motActuel = motComplet.substring(0, this.letterIndex);
         this.cdr.detectChanges();
         this.timer = setTimeout(() => this.lancerAnimation(), 60);
       } else {
-        // Passage au mot suivant
         this.estEnTrainDeSupprimer = false;
         this.wordIndex = (this.wordIndex + 1) % this.motsAanimer.length;
         this.timer = setTimeout(() => this.lancerAnimation(), 300);
