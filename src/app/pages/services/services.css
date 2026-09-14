@@ -1,25 +1,49 @@
 /* ======================================= */
-/* Styles pour les cartes de services      */
+/* Design moderne, épuré et pro pour les services */
 /* ======================================= */
 
-.service-card {
+.services-section {
+  background-color: #faf9f6; /* Un fond très légèrement cassé (off-white) pour casser la monotonie du blanc pur */
+}
+
+/* Style de la carte moderne */
+.service-card-modern {
   background-color: #ffffff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid rgba(0, 0, 0, 0.03) !important;
+  border: 1px solid #eaeaea;
+  transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+  overflow: hidden;
 }
 
-/* Effet au survol élégant (soulèvement de la carte) */
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06) !important;
+/* Numérotation style "éditorial / design studio" */
+.service-number {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #adb5bd;
+  font-family: monospace;
 }
 
-/* Animation douce de l'icône au survol de la carte */
-.service-card:hover .icon-box {
-  transform: scale(1.05);
-  transition: transform 0.3s ease;
+/* Ligne décorative au bas de la carte */
+.service-line {
+  width: 30px;
+  height: 2px;
+  background-color: #dee2e6;
+  transition: width 0.3s ease, background-color 0.3s ease;
 }
 
-.icon-box {
-  transition: transform 0.3s ease;
+/* Effet au survol : la carte se soulève légèrement et prend une bordure élégante */
+.service-card-modern:hover {
+  transform: translateY(-6px);
+  border-color: #ffc107; /* Rappel de ton jaune/avertissement si tu veux, ou change-le */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* La petite ligne s'élargit et prend de la couleur au survol */
+.service-card-modern:hover .service-line {
+  width: 60px;
+  background-color: #ffc107;
+}
+
+.service-card-modern:hover .service-number {
+  color: #ffc107;
 }
