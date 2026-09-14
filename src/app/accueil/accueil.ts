@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { LISTE_PROJETS } from '../projet.data';
 import { Card } from '../card/card';
+import { Services } from '../pages/services/services';
 
 @Component({
   selector: 'app-accueil',
   standalone: true,
-  imports: [CommonModule, RouterLink, Card],
+  imports: [CommonModule, RouterLink, Card, Services], // <-- Services est bien présent ici
   templateUrl: './accueil.html',
   styleUrl: './accueil.css'
 })
@@ -29,7 +30,7 @@ export class Accueil implements OnInit, OnDestroy {
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
-    this.lancerAnimation(); // <-- Très important pour démarrer l'effet machine à écrire
+    this.lancerAnimation(); // <-- Démarrage de l'effet machine à écrire
   }
 
   ngOnDestroy() {

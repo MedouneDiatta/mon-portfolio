@@ -1,0 +1,25 @@
+/* ======================================= */
+/* Styles pour les cartes de services      */
+/* ======================================= */
+
+.service-card {
+  background-color: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.03) !important;
+}
+
+/* Effet au survol élégant (soulèvement de la carte) */
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Animation douce de l'icône au survol de la carte */
+.service-card:hover .icon-box {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.icon-box {
+  transition: transform 0.3s ease;
+}
