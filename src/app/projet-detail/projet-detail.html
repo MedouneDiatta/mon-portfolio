@@ -1,41 +1,105 @@
 <!-- On vérifie si un projet a bien été trouvé -->
-<div *ngIf="projetTrouve; else introuvable" class="container mt-4">
-  <!-- Affichage du titre du projet -->
-  <h2 class="mb-3">{{ projetTrouve.titre }}</h2>
-
-  <!-- Description du projet -->
-  <p class="lead">{{ projetTrouve.description }}</p>
-
-  <!-- Liste des technologies -->
-  <h5 class="mt-4">Technologies utilisées :</h5>
-  <ul class="list-group mb-4" style="max-width: 400px">
-    <li *ngFor="let techno of projetTrouve.technos" class="list-group-item">{{ techno }}</li>
-  </ul>
-
-  <!-- Conteneur pour nos boutons -->
-  <div class="d-flex gap-3 align-items-center">
-    <!-- Bouton GitHub affiché uniquement si le projet possède un lien -->
-    <a
-      *ngIf="projetTrouve.lienGithub"
-      [href]="projetTrouve.lienGithub"
-      target="_blank"
-      class="btn btn-primary"
-    >
-      Voir sur GitHub
+<div *ngIf="projetTrouve; else introuvable" class="container py-5 mt-4" translate="no">
+  <!-- Bouton de retour -->
+  <div class="mb-4">
+    <a routerLink="/" class="btn btn-outline-secondary btn-sm rounded-pill px-3 shadow-sm">
+      ← Retour aux réalisations
     </a>
+  </div>
 
-    <!-- Bouton de retour à l'accueil -->
-    <a routerLink="/" class="btn btn-secondary"> Retour à l'accueil </a>
+  <div class="project-detail-content">
+    <!-- En-tête du projet -->
+    <div class="row align-items-center mb-5">
+      <div class="col-lg-8">
+        <span class="badge bg-primary-subtle text-primary fw-semibold px-3 py-2 rounded-pill mb-3"
+          >Détail du projet</span
+        >
+        <h1 class="display-5 fw-bold text-dark mb-3">{{ projetTrouve.titre }}</h1>
+        <p class="lead text-muted">{{ projetTrouve.description }}</p>
+      </div>
+      <div class="col-lg-4 text-lg-end mt-3 mt-lg-0" *ngIf="projetTrouve.lienGithub">
+        <a
+          [href]="projetTrouve.lienGithub"
+          target="_blank"
+          class="btn btn-dark btn-lg shadow-sm px-4 rounded-pill"
+        >
+          Voir sur GitHub ↗
+        </a>
+      </div>
+    </div>
+
+    <!-- Image principale / Bannière du projet -->
+    <div class="card border-0 shadow-lg rounded-4 overflow-hidden mb-5 project-banner">
+      <img
+        [src]="projetTrouve.image || 'assets/default-project.jpg'"
+        [alt]="projetTrouve.titre"
+        class="img-fluid w-100 object-fit-cover"
+        style="max-height: 450px"
+      />
+    </div>
+
+    <!-- Grille de contenu (Deux colonnes) -->
+    <div class="row g-5">
+      <!-- Colonne principale : À propos du projet -->
+      <div class="col-lg-8">
+        <div class="bg-white p-4 p-md-5 rounded-4 border shadow-sm">
+          <h3 class="fw-bold text-dark mb-4">À propos de ce projet</h3>
+          <p class="text-secondary lh-lg mb-4">
+            Ce projet a été conçu pour répondre à un besoin concret. Il met en avant une
+            architecture propre, une interface utilisateur soignée et une logique de développement
+            rigoureuse.
+          </p>
+          <h5 class="fw-bold text-dark mb-3">Fonctionnalités & Objectifs</h5>
+          <ul class="text-secondary lh-lg ps-3 mb-0">
+            <li>Interface responsive et adaptée à tous les types d'écrans.</li>
+            <li>Gestion optimisée des données et des flux utilisateurs.</li>
+            <li>Respect des bonnes pratiques de développement et de versioning (Git).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Colonne latérale : Fiche technique -->
+      <div class="col-lg-4">
+        <div class="bg-light p-4 rounded-4 border shadow-sm">
+          <h4 class="fw-bold text-dark mb-4 fs-5">Fiche technique</h4>
+
+          <div class="mb-4">
+            <span class="d-block text-muted small text-uppercase fw-bold mb-2"
+              >Technologies utilisées</span
+            >
+            <div class="d-flex flex-wrap gap-2">
+              <span
+                *ngFor="let techno of projetTrouve.technos"
+                class="badge bg-white text-dark border px-3 py-2 shadow-sm rounded-pill"
+              >
+                {{ techno }}
+              </span>
+            </div>
+          </div>
+
+          <div class="mb-3" *ngIf="projetTrouve.lienGithub">
+            <span class="d-block text-muted small text-uppercase fw-bold mb-2">Lien du dépôt</span>
+            <a
+              [href]="projetTrouve.lienGithub"
+              target="_blank"
+              class="text-decoration-none text-primary fw-semibold text-break"
+            >
+              {{ projetTrouve.lienGithub }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
 <!-- Bloc de secours si l'ID n'existe pas -->
 <ng-template #introuvable>
-  <div class="container mt-5 text-center">
-    <div class="alert alert-danger" role="alert">
-      <h4>Oups ! Projet introuvable.</h4>
-      <p>L'identifiant demandé ne correspond à aucun projet enregistré.</p>
+  <div class="container mt-5 text-center py-5">
+    <div class="card border-0 shadow-sm p-5 mx-auto rounded-4" style="max-width: 500px">
+      <h3 class="fw-bold text-danger mb-3">Oups ! Projet introuvable</h3>
+      <p class="text-muted mb-4">L'identifiant demandé ne correspond à aucun projet enregistré.</p>
+      <a routerLink="/" class="btn btn-primary rounded-pill px-4">← Retour à l'accueil</a>
     </div>
-    <a routerLink="/" class="btn btn-primary mt-3">← Retour à l'accueil</a>
   </div>
 </ng-template>
