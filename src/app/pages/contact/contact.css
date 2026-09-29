@@ -94,3 +94,58 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+/* --- Style pour la section Travaillons ensemble --- */
+.travaillons-ensemble {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.travaillons-ensemble h3 {
+  color: #2c3e50;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.emails-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.email-card {
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.email-card:hover {
+  transform: translateY(-3px);
+}
+
+.email-card strong {
+  color: #2980b9;
+  margin-bottom: 0.3rem;
+}
+
+.email-card a {
+  color: #2c3e50;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.email-card a:hover {
+  color: #3498db;
+  text-decoration: underline;
+}

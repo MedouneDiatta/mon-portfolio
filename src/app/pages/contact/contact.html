@@ -1,5 +1,21 @@
-<div class="contact-container">
+﻿<div class="contact-container">
   <h2>Contactez-nous</h2>
+
+  <!-- Nouvelle section Travaillons ensemble -->
+  <div class="travaillons-ensemble">
+    <h3>Travaillons ensemble</h3>
+    <p>Vous pouvez nous contacter directement via nos adresses e-mail :</p>
+    <div class="emails-grid">
+      <div class="email-card">
+        <strong>Abdourahmane Diouf</strong>
+        <a href="mailto:dioufabdourahmane864@gmail.com">dioufabdourahmane864@gmail.com</a>
+      </div>
+      <div class="email-card">
+        <strong>Médoune Diatta</strong>
+        <a href="mailto:medoune.diatta@example.com">medoune.diatta@example.com</a>
+      </div>
+    </div>
+  </div>
 
   <div *ngIf="!envoye">
     <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
@@ -13,7 +29,7 @@
           required
           [class.erreur]="soumis && !nomValide"
           [class.succes]="nomValide"
-          placeholder="Ex: Abdourahmane Diouf"
+          placeholder="Ex : Maty Dieye"
         />
         <small class="msg-erreur" *ngIf="soumis && !nomValide">
           Le nom doit contenir au moins 2 lettres (pas de chiffres).
