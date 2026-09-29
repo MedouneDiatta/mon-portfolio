@@ -7,7 +7,7 @@
   margin-left: calc(-50vw + 50%);
   height: 70vh; /* Légèrement plus haut pour respirer (60vh -> 70vh) */
   /* Dégradé sombre pour bien faire ressortir le texte par rapport à l'image de fond */
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.75), rgba(30, 41, 59, 0.85)), url('../../assets/fond.jpeg');
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.75), rgba(30, 41, 59, 0.85)), url('../../assets/photo-acceuil.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
