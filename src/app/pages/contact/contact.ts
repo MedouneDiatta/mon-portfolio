@@ -40,7 +40,7 @@ import { FormsModule } from '@angular/forms';
             <form (ngSubmit)="onSubmit()">
               <div class="mb-3">
                 <label class="form-label">Votre Nom</label>
-                <input type="text" class="form-control" [(ngModel)]="formData.name" name="name" required placeholder="Ex: Jean Dupont">
+                <input type="text" class="form-control" [(ngModel)]="formData.name" name="name" required placeholder="Ex: Medoune Diatta">
               </div>
               
               <div class="mb-3">
