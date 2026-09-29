@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  template: `
-    <footer class="bg-dark text-white text-center py-4 mt-auto">
-      <div class="container">
-        <p class="mb-1">&copy; 2026 Mon Portfolio - Projet Technologie Web 3</p>
-        <small class="text-muted">Réalisé par Medoune Diatta & [Ton Nom] - L1 Informatique</small>
-      </div>
-    </footer>
-  `
+  imports: [RouterLink],
+  templateUrl: './footer.html',
+  styleUrl: './footer.css',
 })
-export class FooterComponent {}
+export class Footer {
+  // Calculée automatiquement : plus besoin de changer l'année à la main
+  anneeActuelle: number = new Date().getFullYear();
+}

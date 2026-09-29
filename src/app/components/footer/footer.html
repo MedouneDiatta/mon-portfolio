@@ -1,1 +1,79 @@
-<p>footer works!</p>
+<footer class="footer-pro">
+  <div class="container py-5">
+    <div class="row gy-4">
+      <div class="col-md-4">
+        <h5 class="fw-bold mb-2">Mon Portfolio</h5>
+        <p class="text-secondary small mb-0">
+          Projet Technologie Web 3 — L1 Informatique, réalisé en binôme avec Angular.
+        </p>
+      </div>
+
+      <div class="col-md-4">
+        <h6 class="fw-bold mb-3">Navigation</h6>
+        <ul class="list-unstyled d-flex flex-column gap-2">
+          <li><a routerLink="/" class="footer-link">Accueil</a></li>
+          <li><a routerLink="/a-propos" class="footer-link">À propos</a></li>
+          <li><a routerLink="/contact" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-4">
+        <h6 class="fw-bold mb-3">Me retrouver</h6>
+        <div class="d-flex gap-2">
+          <a
+            href="https://github.com/MedouneDiatta"
+            target="_blank"
+            rel="noopener"
+            class="social-btn"
+            aria-label="GitHub"
+          >
+            <i class="bi bi-github"></i>
+          </a>
+          <a
+            href="https://gitlab.com/MedouneDev"
+            target="_blank"
+            rel="noopener"
+            class="social-btn"
+            aria-label="GitLab"
+          >
+            <i class="bi bi-gitlab"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/medoune_dev/"
+            target="_blank"
+            rel="noopener"
+            class="social-btn"
+            aria-label="Instagram"
+          >
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/medoune-sambiane-diatta-0872b7435/"
+            target="_blank"
+            rel="noopener"
+            class="social-btn"
+            aria-label="LinkedIn"
+          >
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a
+            href="https://tiktok.com/@TON-PSEUDO"
+            target="_blank"
+            rel="noopener"
+            class="social-btn"
+            aria-label="TikTok"
+          >
+            <i class="bi bi-tiktok"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="border-secondary mt-4 mb-3" />
+
+    <p class="text-center text-secondary small mb-0">
+      &copy; {{ anneeActuelle }} — Réalisé par Medoune Diatta & Abdouarahman Diouf & Projet
+      Technologie Web 3
+    </p>
+  </div>
+</footer>
