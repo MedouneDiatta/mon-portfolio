@@ -7,25 +7,57 @@ import { FormsModule } from '@angular/forms';
   imports: [FormsModule],
   template: `
     <div class="container py-5">
-      <h1 class="mb-4 text-primary">Nous contacter</h1>
-      <div class="row justify-content-center">
-        <div class="col-md-8">
-          <form (ngSubmit)="onSubmit()" class="p-4 bg-white rounded shadow-sm border">
-            <div class="mb-3">
-              <label class="form-label">Nom</label>
-              <input type="text" class="form-control" [(ngModel)]="formData.name" name="name" required placeholder="Votre nom">
+      <div class="row align-items-center g-5">
+        
+        <!-- Colonne gauche : Informations / Accroche professionnelle -->
+        <div class="col-lg-6">
+          <h2 class="fw-bold mb-3 text-primary">Travaillons ensemble !</h2>
+          <p class="text-muted mb-4">
+            Un projet, une question ou une opportunité de collaboration ? N'hésite pas à m'envoyer un message. Nous te répondrons rapidement.
+          </p>
+          
+          <div class="d-flex flex-column gap-3 mb-4">
+            <div class="d-flex align-items-center gap-3">
+              <span class="badge bg-primary-subtle text-primary p-2 rounded-circle">
+                <i class="bi bi-envelope-fill fs-5"></i>
+              </span>
+              <span class="fw-medium">diattamedounesambiane&#64;gmail.com</span>
             </div>
-            <div class="mb-3">
-              <label class="form-label">Email</label>
-              <input type="email" class="form-control" [(ngModel)]="formData.email" name="email" required placeholder="votre@email.com">
+            <div class="d-flex align-items-center gap-3">
+              <span class="badge bg-primary-subtle text-primary p-2 rounded-circle">
+                <i class="bi bi-geo-alt-fill fs-5"></i>
+              </span>
+              <span class="fw-medium">Sénégal,Thies</span>
             </div>
-            <div class="mb-3">
-              <label class="form-label">Message</label>
-              <textarea class="form-control" rows="4" [(ngModel)]="formData.message" name="message" required placeholder="Votre message..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary w-100">Envoyer</button>
-          </form>
+          </div>
         </div>
+
+        <!-- Colonne droite : Le formulaire moderne et épuré -->
+        <div class="col-lg-6">
+          <div class="card shadow-sm border-0 p-4 rounded-4">
+            <h3 class="h4 mb-4 fw-semibold">Envoyez-moi un message</h3>
+            
+            <form (ngSubmit)="onSubmit()">
+              <div class="mb-3">
+                <label class="form-label">Votre Nom</label>
+                <input type="text" class="form-control" [(ngModel)]="formData.name" name="name" required placeholder="Ex: Jean Dupont">
+              </div>
+              
+              <div class="mb-3">
+                <label class="form-label">Votre Email</label>
+                <input type="email" class="form-control" [(ngModel)]="formData.email" name="email" required placeholder="nom@example.com">
+              </div>
+              
+              <div class="mb-3">
+                <label class="form-label">Votre Message</label>
+                <textarea class="form-control" rows="4" [(ngModel)]="formData.message" name="message" required placeholder="Écrivez votre message ici..."></textarea>
+              </div>
+              
+              <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold">Envoyer le message</button>
+            </form>
+          </div>
+        </div>
+
       </div>
     </div>
   `
